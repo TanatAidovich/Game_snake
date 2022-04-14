@@ -1,14 +1,12 @@
 from modules.point import Point
+from modules.figure import Figure
 from config.config import WIDTH, TILE
 
 
-class HorizontalLine:
+class HorizontalLine(Figure):
 
-    def __init__(self, collor, start, finish, y):
-        self.points = []
-        for i in range(finish * TILE - start * TILE):
-            self.points.append(Point(collor, (start + i * TILE, y * TILE)))
+    def __init__(self, color, start, duration, line_number):
 
-    def draw(self):
-        for point in self.points:
-            point.draw()
+        for i in range(duration):
+            Figure.points.append(
+                Point(color, ((start - 1 + i) * TILE, (line_number - 1) * TILE)))
