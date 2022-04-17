@@ -10,10 +10,10 @@ BORDER_COLOR = 'springgreen3'
 
 class Directions:
 
-    right = 0
-    left = 1
-    up = 2
-    down = 3
+    right = [1, 0]
+    left = [-1, 0]
+    up = [0, -1]
+    down = [0, 1]
 
 
 DIRECTIONS = Directions()
