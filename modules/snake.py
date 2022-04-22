@@ -1,15 +1,25 @@
 from modules.figure import Figure
 from modules.point import Point
-from config.config import TILE
 
 
 class Snake(Figure):
 
     def __init__(self, color, tail_coordinats, length, direction):
-        x, y = tail_coordinats
-        x, y = x * TILE, y * TILE
-        dir_x, dir_y = direction
+
         for i in range(length):
-            _x = x + TILE * dir_x * i
-            _y = y + TILE * dir_y * i
-            Figure.points.append(Point(color, (_x, _y)))
+            point = Point(color, tail_coordinats)
+
+            for _ in range(i):
+                point.move(direction)
+
+            Figure.points.append(point)
+
+    # def move(self, direction):
+    #     if direction == DIRECTIONS.right:
+    #         self.tile.x += TILE
+    #     elif direction == DIRECTIONS.left:
+    #         self.tile.x -= TILE
+    #     elif direction == DIRECTIONS.up:
+    #         self.tile.y -= TILE
+    #     elif direction == DIRECTIONS.down:
+    #         self.tile.y += TILE

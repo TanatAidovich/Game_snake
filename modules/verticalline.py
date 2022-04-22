@@ -1,5 +1,4 @@
 from modules.point import Point
-from config.config import HEIGHT, TILE
 from modules.figure import Figure
 
 class VerticalLine(Figure):
@@ -8,4 +7,4 @@ class VerticalLine(Figure):
 
         for i in range(duration):
             Figure.points.append(
-                Point(color, ((column_number - 1) * TILE, (start - 1 + i) * TILE)))
+                Point(color, (column_number - 1, start - 1 + i)))
